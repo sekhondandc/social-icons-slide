@@ -1,0 +1,107 @@
+:root{
+	--gry:#292929;
+	--wht:#ffffff;
+	--blk:#000000;
+	--fa_a:#3B5998; 
+	--fa_b:#FFFFFF;
+	--tw_a:#66757F;
+	--tw_b:#00ACEE;
+	--tw_c:#36D8FF;
+	--tw_d:#F5F8FA;
+	--in_a:#405DE6;
+	--in_b:#5851DB;
+	--in_c:#833AB4;
+	--in_d:#C13584;
+	--in_e:#E1306C;
+	--in_f:#FD1D1D;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--gry);
+}
+.social-icons .icon{
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    margin: 0 5px;
+    background: var(--wht);
+    border-radius: 50%;
+    box-shadow: 3px 3px 10px 0 var(--blk);
+    position: relative;
+    transition: 0.5s ease;
+}
+.social-icons .icon *{
+    font-size: 30px;
+    color: var(--blk);
+    position: relative;
+    transition: 0.5s ease;
+}
+.social-icons .icon:after{
+    content: attr(title);
+    width: calc(100% + 120px);
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    box-shadow: 2px 2px 4px 0 var(--blk);
+    padding: 20px 10px 10px 0;
+    box-sizing: border-box;
+    text-align: right;
+    color: var(--wht);
+    font-size: 20px;
+    text-transform: capitalize;
+    -webkit-text-stroke: thin;
+    z-index: -1;
+    transition: 0.5s ease;
+    opacity: 0;
+}
+.social-icons .icon.facebook::after{
+    background: linear-gradient(to left, var(--fa_a), var(--fa_b));
+}
+.social-icons .icon.twitter::after{
+    background: linear-gradient(to left, var(--tw_a), var(--tw_b), var(--tw_c), var(--tw_d));
+}
+.social-icons .icon.instagram::after{
+    background: linear-gradient(to left, var(--in_a), var(--in_b), var(--in_c), var(--in_d), var(--in_e), var(--in_f));
+}
+.social-icons .icon::before{
+    content: '';
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--wht));
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.5s ease;
+}
+
+.social-icons .icon:hover{
+    margin-right: 120px;
+}
+.social-icons .icon:hover::after{
+    opacity: 1;
+    left: 0;
+}
+.social-icons .icon:hover::before{
+    opacity: 1;
+    left: 120px;
+}
